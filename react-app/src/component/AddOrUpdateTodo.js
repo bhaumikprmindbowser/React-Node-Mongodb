@@ -39,7 +39,7 @@ function AddOrUpdateTodoForm({currentTodo, setTodos, onClose}) {
       if (currentTodo) {
         const {data} = await API.put(`/todos/${currentTodo._id}`, requestData)
         setTodos((prev) => {
-          const index = prev.findIndex((todo) => todo.id === currentTodo.id)
+          const index = prev.findIndex((todo) => todo._id === currentTodo._id)
           prev[index] = data.todo
           return [...prev]
         })
